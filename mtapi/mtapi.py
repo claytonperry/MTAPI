@@ -108,7 +108,6 @@ class Mtapi(object):
     def _load_mta_feed(self, feed_url):
         try:
             request = urllib.request.Request(feed_url)
-            request.add_header('x-api-key', self._KEY)
             with contextlib.closing(urllib.request.urlopen(request)) as r:
                 data = r.read()
                 return FeedResponse(data)
